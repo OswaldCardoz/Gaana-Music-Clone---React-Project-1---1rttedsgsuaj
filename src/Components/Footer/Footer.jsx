@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import { SocialIcon } from "react-social-icons";
-
 import * as React from "react";
-// import Accordion from "@mui/material/Accordion";
-// import AccordionSummary from "@mui/material/AccordionSummary";
-// import AccordionDetails from "@mui/material/AccordionDetails";
-// import Typography from "@mui/material/Typography";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Link } from "react-router-dom";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useDispatch } from "react-redux";
@@ -40,7 +34,6 @@ function Footer() {
   return (
     <>
       <div className="footer">
-        {/* {screenSize ? ( */}
           <div className="footer-section">
             <div className="footer-intro">
               <h2>Bas Bajna Chahiye Gaana</h2>
@@ -450,9 +443,6 @@ function Footer() {
               </div>
             </div>
           </div>
-        {/* //  ):( */}
-
-
         <div className="dummy-spacing"></div>
       </div>
     </>

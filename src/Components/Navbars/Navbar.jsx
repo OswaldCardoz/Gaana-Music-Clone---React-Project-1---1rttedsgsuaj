@@ -1,14 +1,12 @@
 //done
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { BiUserCircle } from "react-icons/bi";
-
 import ToggleSwitch from "../ToggleSwitch";
 import { useDispatch } from "react-redux";
 import action from "../../action";
 
-function Navbar({ isOpen, toggleSidePanel, closeSidePanel, handleModal }) {
+function Navbar({ isOpen, closeSidePanel, handleModal }) {
   const dispatch = useDispatch();
 
   useEffect(() => {

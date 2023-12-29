@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import actions from "../../../action";
 import Loader from "react-js-loader";
-
 import "react-multi-carousel/lib/styles.css";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 import {
@@ -15,12 +14,9 @@ function ArtistPage2() {
   const [scrolling, setScrolling] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  
   const [currentSong, setCurrentSong] = useState([]);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
-
   const dispatch = useDispatch();
-
   const audioRef = useRef(null);
 
   const handleTimeUpdate = () => {

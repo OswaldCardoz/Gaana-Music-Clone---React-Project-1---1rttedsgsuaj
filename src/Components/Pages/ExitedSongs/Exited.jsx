@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "react-multi-carousel/lib/styles.css";
-import { AiOutlinePlayCircle } from "react-icons/ai";
-import { BsPlayCircle, BsFillPlayFill,BsThreeDotsVertical } from "react-icons/bs";
+import { BsPlayCircle} from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import actions from "../../../action";
 import Loader from "react-js-loader";

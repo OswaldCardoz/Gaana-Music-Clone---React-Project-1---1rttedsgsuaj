@@ -2,7 +2,6 @@ import { AiOutlinePlayCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import actions from "../../action";
 
-
 const SongsCarousel = (props) => {
 
   const dispatch = useDispatch();

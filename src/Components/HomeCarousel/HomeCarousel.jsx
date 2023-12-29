@@ -2,7 +2,6 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
 import img1 from "../../assets/home-pic1.webp";
 import img2 from "../../assets/home-pic2.webp";
 import img3 from "../../assets/home-pic3.webp";

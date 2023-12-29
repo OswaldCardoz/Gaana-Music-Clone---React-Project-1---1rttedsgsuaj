@@ -34,7 +34,6 @@ function App() {
   // music player maximize and minimize
   const [screenSize, setScreensize] = useState(window.innerWidth > 960);
   const [isOpen, setIsOpen] = useState(false);
-  // const [musicExpander, setMusicExpander] = useState(false);
   const [searchingType, setSearchingType] = useState("");
 
   const toggleSidePanel = () => {

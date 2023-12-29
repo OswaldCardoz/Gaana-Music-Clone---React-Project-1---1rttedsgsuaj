@@ -7,6 +7,20 @@ const initialState = {
     romanticSong: [],
     trendingSong: [],
     soulSongs: [],
+    evergreen: [], 
+    top20: [],
+    top50: [],
+    sadSong: [],
+    excitedSong: [],
+    allSongs: [],
+    albumSongs: [],
+    resultSongs: [],
+    resultData: [],
+    allfavSongData: [],
+    favSongUiUpdate: false,
+    artistPage1: [],
+    artistPage2: [],
+    artistPageCardRender: [],
   };
   
   const usersReducer = (state = initialState, action) => {

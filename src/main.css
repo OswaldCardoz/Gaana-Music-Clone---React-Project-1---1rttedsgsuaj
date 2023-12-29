@@ -12,6 +12,7 @@
   --PrimaryColor2: #232522;
   --PrimaryColor3: #333;
   --SecondaryColor: rgb(255, 225, 225);
+  --SecondaryColor1: rgb(255, 225, 225);
   --SecondaryColor3: red;
   --SecondaryColor4: #eeeeee;
   --SecondaryColor7: white;
@@ -39,7 +40,7 @@
 
 .dark-mode {
   background-color: var(--PrimaryColor);
-  color: var(--SecondaryColor);
+  color: var(--SecondaryColor1);
 }
 
 .light-mode {
@@ -1631,7 +1632,7 @@
   justify-content: center;
 }
 .new-songs-section .new-songs-container .song-container-level-1 .music-card {
-  color: var(--SecondaryColor);
+  color: black;
   position: relative;
   display: flex;
   flex-direction: column;

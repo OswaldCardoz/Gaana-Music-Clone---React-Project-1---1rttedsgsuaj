@@ -415,7 +415,7 @@ function LoginPage({ isOpen, handleModal }) {
                   />
                   {!passwordChecking && (
                     <p className="error-messages">
-                      Password should contains minimum 8 Characters
+                      Password should contain minimum 8 Characters
                     </p>
                   )}
                   <Button

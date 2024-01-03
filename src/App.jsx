@@ -13,7 +13,7 @@ import SongsCollection from "./Components/SongsColletion/SongsCollection.jsx";
 import TrendingSongs from "./Components/Pages/TrendingSongs/TrendingSongs.jsx"
 import Happy from "./Components/Pages/HappySongs/Happy.jsx";
 import Album from "./Components/Pages/Album/Album.jsx";
-import ExitedSongs from "./Components/Pages/ExitedSongs/Exited.jsx";
+import ExcitedSongs from "./Components/Pages/ExcitedSongs/Excited.jsx";
 import ComingSoonPage from "./Components/Pages/ComingSoon/ComingSoon.jsx";
 import Sad from "./Components/Pages/SadSongs/Sad.jsx";
 import Romance from "./Components/Pages/Romance/Romance.jsx";
@@ -127,7 +127,7 @@ function App() {
               <Route path="/allsongs" element={<AllSongs />} />
               <Route path="/happy" element={<Happy />} />
               
-              <Route path="/exited" element={<ExitedSongs />} />
+              <Route path="/excited" element={<ExcitedSongs />} />
               <Route path="/sad" element={<Sad />} />
               <Route path="/romance" element={<Romance />} />
               <Route path="/comingsoon" element={<ComingSoonPage />} />

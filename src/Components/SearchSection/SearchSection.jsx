@@ -70,7 +70,7 @@ const SearchSection = (props) => {
         props.handlerClosingBox(true);
       }
     );
-  }, [props, updatedSongData, updatedTopData, updatedAlbumData, updatedArtistData]);
+  }, [props, updatedSongData, updatedTopData, updatedAlbumData, updatedArtistData,updatedTop50Data]);
 
   // Handler functions for item selection
   // useEffect(() => {
@@ -189,7 +189,7 @@ const SearchSection = (props) => {
       fromSearch: "yes",
       category: "search-top50",
     };
-    setUpdatedTopData(updatedList);
+    setUpdatedTop50Data(updatedList);
     setTimeout(() => {
       props.handlerClosingBox(false);
     }, 1000);

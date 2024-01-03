@@ -250,12 +250,6 @@ function SearchResult() {
                             </div>
                           </td>
                           <td className="table-td-3">
-                            {/* <button className="btn-play">
-                              <BsFillPlayFill className="play-button" />
-                            </button>
-                            <button className="btn-option">
-                              <BsThreeDotsVertical className="play-option" />
-                            </button> */}
                           </td>
                         </tr>
                       ))}                      

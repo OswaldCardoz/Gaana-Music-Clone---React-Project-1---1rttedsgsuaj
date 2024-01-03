@@ -5,22 +5,22 @@ import actions from "../../../action";
 import Loader from "react-js-loader";
 import useFetchData from "../../hooks/useFetchData";
 
-function Sad() {
+function Excited() {
   const dispatch = useDispatch();
-  const { data, loading } = useFetchData("sad");
+  const { data, loading } = useFetchData("excited");
 
   const handleSongClick = (item) => {
     dispatch(actions.setActiveSong(item));
   };
-
+//rendering
   return (
     <>
       {loading ? (
         <Loader size="lg" />
       ) : (
-        <div className="new-songs-section" style={{ backgroundColor: "brown" }}>
+        <div className="new-songs-section" style={{ backgroundColor: "green" }}>
           <div className="new-songs-container">
-            <h2>Sad Songs</h2>
+            <h2>Exciting Songs</h2>
             <div className="song-container-level-1">
               {data.map((item, index) => (
                 <div
@@ -44,5 +44,4 @@ function Sad() {
   );
 }
 
-export default Sad;
-
+export default Excited;

@@ -30,6 +30,7 @@ function MusicControls(props) {
   const soulSongList = useSelector((state) => state.users.soulSongs);
   const evergreenList = useSelector((state) => state.users.evergreen);
   const top20songs = useSelector((state) => state.users.top20);
+  const top50songs = useSelector((state) => state.users.top50);
   const happySongList = useSelector((state) => state.users.happySong);
   const romanticSongList = useSelector((state) => state.users.romanticSong);
   const sadSongList = useSelector((state) => state.users.sadSong);
@@ -69,6 +70,8 @@ const artistFlag = activeSong.artistFiltered === "yes";
       songList = evergreenList;
     } else if (activeSong.featured === "Top 20 of this week") {
       songList = top20songs;
+    } else if (activeSong.featured === "Top 50 of this month") {
+      songList = top50songs;
     } else if (activeSong.mood === "happy") {
       songList = happySongList;
     } else if (activeSong.mood === "romantic") {

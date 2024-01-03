@@ -4,16 +4,26 @@ import { Link } from "react-router-dom";
 import Loader from "react-js-loader";
 import { useDispatch, useSelector } from "react-redux";
 import action from "../../../action";
-
+import {getSongsByArtist} from '../../../GetSongsByArtist.jsx'
+import {fetchArtists } from "../../FetchingApis/fetching.jsx";
 
 function Artist() {
   const [renderCard, setRenderCard] = useState(false);
-  
+  // const [artistPage1, setArtistPage1] =useState();
   const dispatch = useDispatch();
-  
+  const fetchData = async () =>{
+  const artist = await fetchArtists();
+  const newSongData = getSongsByArtist(artist);
+  const newFilteredArray = [...new Set(newSongData.map((item)=>item))];
+  // setArtistPage1(newFilteredArray);
+  // dispatch(action.setArtistPage1(newFilteredArray));
+  dispatch(action.setArtistCardsRender(newFilteredArray));
+  }
   const artistDataFromStore = useSelector((state) => state.users.artistPageCardRender);
-  console.log(artistDataFromStore)
-  
+  // console.log(artistDataFromStore)
+  useEffect(()=>{
+    fetchData();
+  })
   useEffect(() => {
     setTimeout(()=> {
       setRenderCard(true)

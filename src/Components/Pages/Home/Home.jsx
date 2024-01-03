@@ -9,7 +9,6 @@ import action from "../../../action.js";
 import Loader from "react-js-loader";
 
 import { fetchByType, fetchArtists } from "../../FetchingApis/fetching.jsx";
-import {getSongsByArtist} from '../../../GetSongsByArtist.jsx'
 
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 1024 }, items: 7, slidesToSlide: 2 },
@@ -31,7 +30,6 @@ function Home() {
   const [romanticSongsData, setRomanticSongsData] = useState();
   const [sadSongsData, setSadSongsData] = useState();
   const [excitedSongsData, setExcitedSongsData] = useState();
-  const [artistPage1, setArtistPage1] =useState();
 
   const [loader1, setLoader1] = useState(false);
   const [loader2, setLoader2] = useState(false);
@@ -138,14 +136,7 @@ function Home() {
         dispatch(action.setExcitedData(excitedMood));
         setExcitedSongsData(excitedMood);
         setInLocalStorage(excitedMood);
-        setLoader9(false);
-
-        const artist = await fetchArtists();
-        const newSongData = getSongsByArtist(artist);
-        const newFilteredArray = [...new Set(newSongData.map((item)=>item))];
-        setArtistPage1(newFilteredArray);
-        dispatch(action.setArtistPage1(newFilteredArray));
-        dispatch(action.setArtistCardsRender(newFilteredArray));
+        setLoader9(false);   
       } catch (error) {
         console.error("Error fetching data", error);
       }

@@ -67,7 +67,7 @@ const SongsCollection = () => {
         {renderMenuItem("All Songs", "/allsongs", () => handleSongSelection("All Songs", "Moods & Genres"))}
         {renderMenuItem("Artist", "/artist", () => handleSongSelection("Artist", "Moods & Genres"))}
         {renderMenuItem("Happy Mood", "/happy", () => handleSongSelection("Happy Mood", "Moods & Genres"))}
-        {renderMenuItem("Exciting Music", "/exited", () => handleSongSelection("Exciting Harmony", "Moods & Genres"))}
+        {renderMenuItem("Exciting Music", "/excited", () => handleSongSelection("Exciting Harmony", "Moods & Genres"))}
 
         <Tooltip title="">
           <IconButton
@@ -124,6 +124,7 @@ const SongsCollection = () => {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <Box sx={{ maxHeight: 240, overflowY: "auto" }}>
+          {renderMenuItem("Party", "/excited", () => setCategory("Party"))}
           {renderMenuItem("Sad Songs", "/sad", () => setCategory("Sad Songs"))}
           {renderMenuItem("Romance", "/romance", () => setCategory("Romance"))}
           {renderMenuItem("90s and 2000s", "/comingsoon", () => setCategory("90s and 2000s"))}
@@ -133,7 +134,6 @@ const SongsCollection = () => {
           {renderMenuItem("Ghazals", "/comingsoon", () => setCategory("Ghazals"))}
           {renderMenuItem("Workout", "/comingsoon", () => setCategory("Workout"))}
           {renderMenuItem("Stars", "/comingsoon", () => setCategory("Stars"))}
-          {renderMenuItem("Retro", "/comingsoon", () => setCategory("Retro"))}
           {renderMenuItem("Wedding", "/comingsoon", () => setCategory("Wedding"))}
           {renderMenuItem("Kids", "/comingsoon", () => setCategory("Kids"))}
           {renderMenuItem("Dance", "/comingsoon", () => setCategory("Dance"))}

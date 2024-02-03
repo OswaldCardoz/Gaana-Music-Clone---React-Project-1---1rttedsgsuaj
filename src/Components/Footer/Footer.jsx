@@ -6,20 +6,20 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { useDispatch } from "react-redux";
 import action from "../../action";
 function Footer() {
-  const [screenSize,setScreenSize]=useState();
+  // const [screenSize,setScreenSize]=useState();
   const dispatch = useDispatch();
 
 
-  useEffect(() => {
-    const handleScreenSize = () => {
-      setScreenSize(window.innerWidth > 960);
-    };
-    window.addEventListener("resize", handleScreenSize);
+  // useEffect(() => {
+  //   const handleScreenSize = () => {
+  //     setScreenSize(window.innerWidth > 960);
+  //   };
+  //   window.addEventListener("resize", handleScreenSize);
 
-    return () => {
-      window.removeEventListener("resize", handleScreenSize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleScreenSize);
+  //   };
+  // }, []);
 
   const handleSongSelection = (selectedItem) => {    
     dispatch(action.setActiveItem(selectedItem));

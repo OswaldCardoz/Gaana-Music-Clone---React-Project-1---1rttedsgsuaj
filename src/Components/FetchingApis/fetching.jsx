@@ -14,8 +14,19 @@ const fetchData = async (url, options = {}) => {
   }
 };
 
-export const fetchSongs = async (filter, limit) => {
-  const url = `https://academics.newtonschool.co/api/v1/music/song?filter=${filter}&limit=${limit}`;
+const fetchData2 = async (url, options = {}) => {
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return data.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+};
+
+export const fetchSongs = async (filter) => {
+  const url = `https://academics.newtonschool.co/api/v1/music/song?filter=${filter}&limit=100`;
   const options = {
     headers,
   };
@@ -23,8 +34,8 @@ export const fetchSongs = async (filter, limit) => {
   return fetchData(url, options);
 };
 
-export const fetchAllSongs = async (limit = 100) => {
-  const url = `https://academics.newtonschool.co/api/v1/music/song?&limit=${limit}`;
+export const fetchAllSongs = async (page) => {
+  const url = `https://academics.newtonschool.co/api/v1/music/song?&page=${page}&limit=10`;
   const options = {
     headers,
   };
@@ -32,8 +43,8 @@ export const fetchAllSongs = async (limit = 100) => {
   return fetchData(url, options);
 };
 
-export const fetchArtists = async (limit = 200) => {
-  const url = `https://academics.newtonschool.co/api/v1/music/artist?limit=${limit}`;
+export const fetchArtists = async () => {
+  const url = `https://academics.newtonschool.co/api/v1/music/artist?limit=100`;
   const options = {
     headers,
   };
@@ -42,14 +53,14 @@ export const fetchArtists = async (limit = 200) => {
 };
 
 export const fetchAlbum = async (limit = 100) => {
-  const url = `https://academics.newtonschool.co/api/v1/music/album?limit=${limit}`;
+  const url = `https://academics.newtonschool.co/api/v1/music/song?&limit=${limit}`;
   const options = {
     headers,
   };
 
   return fetchData(url, options);
 };
-
+//home page
 export const fetchByType = async (type) => {
   switch (type) {
     case 'Trending songs':
@@ -71,7 +82,51 @@ export const fetchByType = async (type) => {
     case 'excited':
       return fetchSongs('{"mood":"excited"}', 100);
     case 'artists':
-      return fetchArtists(100);
+      return fetchArtists();
+    default:
+      throw new Error(`Invalid type: ${type}`);
+  }
+};
+
+
+
+
+///for pagination
+export const fetchSongs2 = async (filter,page) => {
+  const url = `https://academics.newtonschool.co/api/v1/music/song?filter=${filter}&page=${page}&limit=10`;
+  const options = {
+    headers,
+  };
+
+  return fetchData2(url, options);
+};
+
+export const fetchArtists2 = async (page) => {
+  const url = `https://academics.newtonschool.co/api/v1/music/artist?page=${page}&limit=10`;
+  const options = {
+    headers,
+  };
+
+  return fetchData2(url, options);
+};
+export const fetchByType2 = async (type, page) => {
+  switch (type) {
+    case 'Trending songs':
+      return fetchSongs('{"featured":"Trending songs"}', 100);
+    case 'Soul soother':
+      return fetchSongs2('{"featured":"Soul soother"}', page);
+    case 'Evergreen melodies':
+      return fetchSongs2('{"featured":"Evergreen melodies"}', page);
+    case 'happy':
+      return fetchSongs2('{"mood":"happy"}', page);
+    case 'romantic':
+      return fetchSongs2('{"mood":"romantic"}', page);
+    case 'sad':
+      return fetchSongs2('{"mood":"sad"}', page);
+    case 'excited':
+      return fetchSongs2('{"mood":"excited"}', page);
+      case 'artists':
+        return fetchArtists2(page);
     default:
       throw new Error(`Invalid type: ${type}`);
   }

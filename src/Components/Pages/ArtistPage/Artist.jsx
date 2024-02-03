@@ -23,7 +23,8 @@ function Artist() {
   // console.log(artistDataFromStore)
   useEffect(()=>{
     fetchData();
-  })
+  },[]);
+  
   useEffect(() => {
     setTimeout(()=> {
       setRenderCard(true)

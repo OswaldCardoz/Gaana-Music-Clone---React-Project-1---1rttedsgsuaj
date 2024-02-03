@@ -1,19 +1,21 @@
+
 import { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import {  useSelector } from "react-redux";
 
 function MySongs() {
   const dataFromLocal = localStorage.getItem("userData") || "";
   const local = dataFromLocal ? JSON.parse(dataFromLocal) : "";
-  const [removal, setRemoval] = useState("");
+  // const [removal, setRemoval] = useState("");
   const [individualSong, setIndividualSong] = useState([]);
-  const uiReRenderData = useSelector((state) => state.users.favSongUiUpdate);
+  const [uiReRenderData,setUiReRenderData]=useState(false);
 
-  const debouncedFavSongFetching = debounce(() => {
-    favSongFetching();
-  }, 500);
+  // const debouncedFavSongFetching = debounce((del) => {
+  //   favSongFetching(del);
+  //   songIdFetching();
+  // }, 500);
 
-  async function favSongFetching() {
+  async function favSongFetching(del) {
+    const removal=del;
     try {
       const response = await fetch("https://academics.newtonschool.co/api/v1/music/favorites/like", {
         method: 'PATCH',
@@ -34,6 +36,7 @@ function MySongs() {
 
       if (result.data) {
         setIndividualSong(result.data.songs);
+        
       } else {
         console.log("Data not found in the API response.");
       }
@@ -43,9 +46,12 @@ function MySongs() {
   }
   // let songs={};
   const handlerRemoveFav = (data) => {
-    // console.log("to delete", data);
-    setRemoval(data);
-    debouncedFavSongFetching();
+    console.log("to delete", data);
+    // const del=setRemoval(data);
+    const del =data;
+    // setUiReRenderData(!uiReRenderData);
+    // debouncedFavSongFetching(del);
+    favSongFetching(del)
   }
 
 
@@ -79,6 +85,9 @@ function MySongs() {
   useEffect(() => {
     songIdFetching();
   }, [uiReRenderData]);
+  // useEffect(() => {
+  //   songIdFetching();
+  // }, []);
 
   return (
     <>

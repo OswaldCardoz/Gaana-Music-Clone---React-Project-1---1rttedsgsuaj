@@ -53,7 +53,7 @@ export const fetchArtists = async () => {
 };
 
 export const fetchAlbum = async (limit = 100) => {
-  const url = `https://academics.newtonschool.co/api/v1/music/song?&limit=${limit}`;
+  const url = `https://academics.newtonschool.co/api/v1/music/album?limit=${limit}`;
   const options = {
     headers,
   };

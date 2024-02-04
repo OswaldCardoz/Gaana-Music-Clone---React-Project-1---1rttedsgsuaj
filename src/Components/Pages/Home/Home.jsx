@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import HomeCarousel from "../../HomeCarousel/HomeCarousel.jsx";
-import SongsCarousel from "../../Carousel/SongsCarousel.jsx";
+import SongsCarousel from "./Carousel/SongsCarousel.jsx";
 import { useDispatch} from "react-redux";
 import action from "../../../action.js";
 import Loader from "react-js-loader";

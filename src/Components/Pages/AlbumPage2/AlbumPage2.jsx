@@ -83,14 +83,14 @@ function AlbumPage2() {
         setCurrentSong(updatedSongs);
 
         if (updatedSongs && updatedSongs.audio) {
-          const songsOfMovie = updatedSongs.audio.map((item) => ({
+          const songsL = updatedSongs.audio.map((item) => ({
             audio: item.audio_url || "",
             songName: item.title || "",
             image: updatedSongs.url || "",
             id: item._id,
             album: "yes",
           }));          
-          setCurrentTrack(songsOfMovie);
+          setCurrentTrack(songsL);
           setShowContent(true);
         }
       } catch (error) {
@@ -196,8 +196,8 @@ function AlbumPage2() {
                       <tr>
                         <th className="table-s-no"></th>
                         <th className="track-header">Track</th>
-                        <th>Artists</th>
-                        <th>Album</th>
+                        {/* <th>Artists</th> */}
+                        {/* <th>Album</th> */}
                         <th>Duration</th>
                       </tr>
                     </thead>
@@ -221,14 +221,14 @@ function AlbumPage2() {
                               <p className="song-name"> {tracks.songName} </p>
                             </div>
                           </td>
-                          <td className="table-col-3">
+                          {/* <td className="table-col-3">
                             <p className="singer-name"> {} </p>
-                          </td>
-                          <td className="table-col-4">
+                          </td> */}
+                          {/* <td className="table-col-4">
                             <p className="track-movie-name">
                               {tracks.songName}
                             </p>
-                          </td>
+                          </td> */}
                           <td className="table-col-5">
                             <p className="track-duration">
                               {formatTime(duration)}

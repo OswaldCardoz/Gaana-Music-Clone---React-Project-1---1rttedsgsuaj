@@ -302,24 +302,6 @@ const artistFlag = activeSong.artistFiltered === "yes";
     return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2,"0")}`;
   };
 
-
-  // size contol
-  const [screenSize, setScreenSize] = useState(window.innerWidth > 960);
-  
- 
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize(window.innerWidth > 960);
-    };
-  
-    window.addEventListener("resize", handleResize);
-  
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-
 //  Fav song
 const data =  localStorage.getItem("userData") || "";
 const local = data?JSON.parse(data) : "";

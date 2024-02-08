@@ -137,13 +137,13 @@ function SearchResult() {
 
                         0 min 20 sec
                         <div className="song-button">
-                    {!screenSize&&<button
+                    {/* {!screenSize&&<button
                       onClick={() => handleSongClicker(currentSong[songIndex])}
                       className="song-play-btn"
                       style={{ fontSize: "0.9em", padding: "5px 10px" }}
                     >
                       Play Song
-                    </button>}
+                    </button>} */}
                   </div>
                       </div>
                     </div>
@@ -161,12 +161,12 @@ function SearchResult() {
                 <div className="song-genere">
                   <p className="song-name">{currentSong && currentSong[songIndex] && currentSong[songIndex].title ?  currentSong[songIndex].title : ""} </p>
                 </div>
-                <button
+                {/* <button
                   onClick={() => handleSongClicker(currentTrack[songIndex])}
                   className="track-list-playing-option"
                 >
                   Play All
-                </button>
+                </button> */}
               </div>
             ) : (
               <div></div>

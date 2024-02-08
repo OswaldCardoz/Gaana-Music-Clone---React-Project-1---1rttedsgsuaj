@@ -1,8 +1,11 @@
 
 import { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import action from "../../../action";
+import { useDispatch } from "react-redux";
 
 function MySongs() {
+  const dispatch=useDispatch();
   const dataFromLocal = localStorage.getItem("userData") || "";
   const local = dataFromLocal ? JSON.parse(dataFromLocal) : "";
   // const [removal, setRemoval] = useState("");
@@ -55,6 +58,7 @@ function MySongs() {
   }
 
 
+
   const songIdFetching= async()=> {
     try {
       const fetching = await fetch("https://academics.newtonschool.co/api/v1/music/favorites/like", {
@@ -84,10 +88,35 @@ function MySongs() {
 
   useEffect(() => {
     songIdFetching();
-  }, [uiReRenderData]);
+  }, []);
   // useEffect(() => {
   //   songIdFetching();
   // }, []);
+
+  const toStore = individualSong.map((item)=>({
+    key: item._id,
+    id: item._id,
+    thumbnail: item.thumbnail,
+    title: item.title,
+    artist: artistName(item.artist[0]),
+    audio_url: item.audio_url,
+    myFav: "yes",
+
+  }))
+  const handlerSongPlay = (item) => {
+    const song = {
+      key: item._id,
+      id: item._id,
+      thumbnail: item.thumbnail,
+      title: item.title,
+      artist: artistName(item.artist[0]),
+      audio_url: item.audio_url,
+      myFav: "yes",
+    }
+    dispatch(action.setActiveSong(song));
+    dispatch(action.setAllFavSongs(toStore));
+  }
+
 
   return (
     <>
@@ -102,7 +131,7 @@ function MySongs() {
         <div className="music-player-section-2">
           <div className="table-td-2-img">
             {individualSong.map((item) => (
-              <div key={item._id} className="songs-collection">
+              <div onClick={()=>handlerSongPlay(item)} key={item._id} className="songs-collection">
                 <div className="inside-song-collection">
                   <img src={item.thumbnail} alt="img" className="table-mob-view-poster" />
                   <div className="flex">

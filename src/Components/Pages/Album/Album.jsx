@@ -6,7 +6,7 @@ import Loader from "react-js-loader";
 import { fetchAlbum } from "../../FetchingApis/fetching";
 
 function Album() {
-  const [dataFromStore, setDataFromStore] = useState([]);
+  const [data, setData] = useState([]);
   const [renderCard, setRenderCard] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function Album() {
           artist: (item.artist && item.artist[0] && item.artist[0].name) || "",
           audioUrl: (item.artist && item.artist[0] && item.artist[0].songs) || "",
         }));
-        setDataFromStore(result);
+        setData(result);
         setRenderCard(true);
       } catch (error) {
         console.error("Error fetching album data", error);
@@ -38,7 +38,7 @@ function Album() {
           <div className="new-songs-container">
             <h2>Album Songs</h2>
             <div className="song-container-level-1">
-              {dataFromStore.map((item) => (
+              {data.map((item) => (
                 <Link key={item.id} to={`${item.title}/${item.id}`}>
                   <div className="music-card">
                     <BsPlayCircle className="play-icon" />

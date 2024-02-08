@@ -9,7 +9,7 @@
 
 // function AllSongs() {
 //   const dispatch = useDispatch();
-//   const [dataFromStore, setDataFromStore] = useState([]);
+//   const [data, setData] = useState([]);
 //   const [renderCard, setRenderCard] = useState(false);
 //   useEffect(() => {
 //     const fetching = async () => {
@@ -31,7 +31,7 @@
 //         // setCurrentSong(result2);
 //         // setShowContent(true);
 //         dispatch(action.setAllSongsData(fetchAllSongData));
-//         setDataFromStore(result);
+//         setData(result);
 //         setRenderCard(true);
 //       } catch (error) {
 //         console.log(error);
@@ -54,7 +54,7 @@
 //           <div className="new-songs-container">
 //             <h2>All Songs</h2>
 //             <div className="song-container-level-1">
-//               {dataFromStore.map((item, index) => (
+//               {data.map((item, index) => (
 //                 <div
 //                   key={item._id || index}
 //                   className="music-card"
@@ -94,7 +94,7 @@ import action from "../../../action";
 
 function AllSongs() {
   const dispatch = useDispatch();
-  const [dataFromStore, setDataFromStore] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -123,7 +123,7 @@ function AllSongs() {
         }));
         
         dispatch(action.setAllSongsData(fetchAllSongData));
-        setDataFromStore((prevData) => [...prevData, ...result]);
+        setData((prevData) => [...prevData, ...result]);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -156,12 +156,12 @@ function AllSongs() {
         <div className="new-songs-container">
           <h2>All Songs</h2>
           <div className="song-container-level-1">
-            {dataFromStore.map((item, index) => (
+            {data.map((item, index) => (
               <div
                 key={item._id || index}
                 className="music-card"
                 onClick={() => handleSongClicker(item)}
-                ref={dataFromStore.length === index + 1 ? lastSongRef : null}
+                ref={data.length === index + 1 ? lastSongRef : null}
               >
                 <BsPlayCircle className="play-icon" />
                 <img className="songs-image" src={item.url} alt="img" />

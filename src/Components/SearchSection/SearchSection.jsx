@@ -59,10 +59,10 @@ const SearchSection = (props) => {
       `https://academics.newtonschool.co/api/v1/music/song?search={"title":%22${props.message}%22}`,
       setSongData
     );
-    fetchData(
-      `https://academics.newtonschool.co/api/v1/music/album?search={"title":%22${props.message}%22}`,
-      setAlbumData
-    );
+    // fetchData(
+    //   `https://academics.newtonschool.co/api/v1/music/album?search={"title":%22${props.message}%22}`,
+    //   setAlbumData
+    // );
     fetchData(
       `https://academics.newtonschool.co/api/v1/music/artist/?search={"name":%22${props.message}%22}`,
       (data) => {
@@ -106,30 +106,30 @@ const SearchSection = (props) => {
     dispatch(action.setSearchResultData(updatedList));
     dispatch(action.setAllSearchResultData(songData));
   };
-  const handlerAlbumSelection = (e) => {
-    const updatedList = {
-      key: e._id,
-      id: e._id,
-      thumbnail: e.image,
-      title: e.title,
-      artist:
-        e.artist && e.artist[0] && e.artist[0].name ? e.artist[0].name : "",
-      description:
-        e.artist && e.artist[0] && e.artist[0].description
-          ? e.artist[0].description
-          : "",
-      audio_url: e.songs,
-      fromSearch: "yes",
-      category: "search-albumSong",
-    };
+  // const handlerAlbumSelection = (e) => {
+  //   const updatedList = {
+  //     key: e._id,
+  //     id: e._id,
+  //     thumbnail: e.image,
+  //     title: e.title,
+  //     artist:
+  //       e.artist && e.artist[0] && e.artist[0].name ? e.artist[0].name : "",
+  //     description:
+  //       e.artist && e.artist[0] && e.artist[0].description
+  //         ? e.artist[0].description
+  //         : "",
+  //     audio_url: e.songs,
+  //     fromSearch: "yes",
+  //     category: "search-albumSong",
+  //   };
 
-    setUpdatedAlbumData(updatedList);
-    setTimeout(() => {
-      props.handlerClosingBox(false);
-    }, 1000);
-    dispatch(action.setSearchResultData(updatedList));
-    dispatch(action.setAllSearchResultData(albumData));
-  };
+  //   setUpdatedAlbumData(updatedList);
+  //   setTimeout(() => {
+  //     props.handlerClosingBox(false);
+  //   }, 1000);
+  //   dispatch(action.setSearchResultData(updatedList));
+  //   dispatch(action.setAllSearchResultData(albumData));
+  // };
 
   const handlerArtistSelection = (e) => {
     const updatedList = {
@@ -341,7 +341,7 @@ const SearchSection = (props) => {
               </div>
             </>
           )}
-          {albumData && albumData.length > 0 && (
+          {/* {albumData && albumData.length > 0 && (
             <>
               <h2 className="title">Album</h2>
               <div className="search-cards album">
@@ -406,7 +406,7 @@ const SearchSection = (props) => {
                 </Swiper>
               </div>
             </>
-          )}
+          )} */}
           {artistData && artistData.length > 0 && (
             <>
               <h2 className="title">Artist</h2>
